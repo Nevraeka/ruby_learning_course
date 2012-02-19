@@ -65,15 +65,15 @@ end
 
 #irb 
 
-puts "Enter the multiplication table scale (number)"
-rows_and_cols = gets.chomp
+# puts "Enter the multiplication table scale (number)"
+# rows_and_cols = gets.chomp
 
-puts "Enter the header for this multiplication table (press enter if none is available)"
-header = gets.chomp
+# puts "Enter the header for this multiplication table (press enter if none is available)"
+# header = gets.chomp
 
-puts "is the table going to be decorated (true or false)"
-decorate = gets.chomp
+# puts "is the table going to be decorated (true or false)"
+# decorate = gets.chomp
 
-m_tbl = MultiplicationTable.new(rows_and_cols, header, decorate)
+# m_tbl = MultiplicationTable.new(rows_and_cols, header, decorate)
 
-#wip. doesnt work as expected. moving on to next excercise
+#wip. doesnt work as expected. Will come back at a later date but moving on to next excercise for now
