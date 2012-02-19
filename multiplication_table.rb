@@ -7,6 +7,7 @@ class MultiplicationTable
     @header = header.empty? ? "" : header   
     @decorate = decorate.empty? ? false : true
     make_h(rows_and_cols)
+    # h_to_tbl
   end
 
   def base_scale(rows_and_cols)
@@ -30,7 +31,6 @@ class MultiplicationTable
       @multiplication_table.merge!({"row#{count}" => []})
       update_h(count)
     end
-    puts "#{@multiplication_table}"
   end
 	
   def add_header
@@ -47,7 +47,18 @@ class MultiplicationTable
   end
 
   def h_to_tbl
-
+    # return unless @decorate
+    longest_num = Math.log10(Integer(@rows_and_cols)).floor + 1 #thanks to victor for this
+    multi_table = ""
+    multi_table << (@multiplication_table["header"] ? "#{@multiplication_table["header"]}\n" : "")
+    multi_table << ("="*((Integer(@rows_and_cols)+1)*longest_num))
+    multi_table << "\n"
+    @rows_and_cols.each do | key |
+      unless key == "header"
+       multi_table << (" " + "#{key.join(" ")}" + " \n")
+      end
+    end
+    puts multi_table
   end
  
 end
@@ -64,3 +75,5 @@ puts "is the table going to be decorated (true or false)"
 decorate = gets.chomp
 
 m_tbl = MultiplicationTable.new(rows_and_cols, header, decorate)
+
+#wip. doesnt work as expected. moving on to next excercise
