@@ -1,12 +1,15 @@
-def leap_year?(year)
-  year % 4 == 0 && ((year % 100 == 0) || (year % 4 == 0)) # source: http://en.wikipedia.org/wiki/Leap_year#Algorithm
-end
+# note: without error handling and defensive coding
 
-def minutes_in_days_by_year(year)
-  leap_year?(year) ? (60*24*366) : (60*24*365)
-end
+puts "Enter a file path to update"
+txt_file = gets.chomp
+read_file = File.read(txt_file)
 
-puts "Enter a year to evalute in minutes"
-yr = gets.chomp.to_i
+puts "Enter the word you wish to replace"
+word = gets.chomp
+puts "Enter the word you wish to replace that word with"
+replacer_word = gets.chomp
+txt = read_file.gsub(word, replacer_word)
 
-puts "The year \"#{yr}\" has \"#{minutes_in_days_by_year(yr)}\" total minutes and is #{leap_year?(yr) ? '' : 'not '}a leap year"
+puts "Writing to file..."
+File.open(txt_file, "w"){|f| f << txt}
+puts "File updated"
