@@ -1,7 +1,8 @@
 def reverse_words(words)
-  words[0..-1].gsub("\n","").split(" ").reverse.compact.join(" ")
+  words[0..-1].split(/.\s/).reverse.compact.join(" ")
 end
 
 puts "Enter a sentence you wish to reverse"
-input = gets.chomp
-reverse_words(input)
+input = gets.strip
+
+puts reverse_words(input)
