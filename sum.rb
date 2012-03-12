@@ -1,12 +1,11 @@
-def make_integer_array (str)
-  str.split(",").map {| input_num | input_num.to_i}
+def int_collector (str)
+  str.split(/[^0-9]/).map {| input_num | input_num.to_i}
 end
 
 def sum (nums)
-  make_integer_array(nums).compact.inject { | sum, i | sum + i }
+  int_collector(nums).inject { | sum, i | sum + i }
 end
 
-puts "Enter an array with the numbers you wish to add together"
+puts "Enter any numbers you wish to sum up"
 input = gets.strip
 puts sum input
-
