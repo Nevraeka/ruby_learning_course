@@ -4,6 +4,7 @@ module Chat
     def initialize(start_chat_msg)
       @bye_count = 0
       @random_recollection = (1930..1951).to_a
+      @grandma_heard = ["WHY?!!", "SIGH?!", "CRY?!!"]
       @start_msg = start_chat_msg
       converse_with_your_grandma
     end
@@ -18,7 +19,7 @@ module Chat
     end
 
     def this_is_goodbye?(input)
-      (/BYE/.match(input).instance_of? MatchData) ? true : false
+      input.upcase == "BYE"
     end
 
     def how_many_times_have_we_said_goodbye_deary?(input)
@@ -26,7 +27,7 @@ module Chat
       if its_time_for_tea_and_crumpets
         puts "OH...OKAY SONNY! BYE!!!"
       else
-	puts ["WHY?!!", "SIGH?!", "CRY?!!"][rand(0..1)]
+	puts @grandma_heard[rand(@grandma_heard.size - 1)]
       end
     end
 
