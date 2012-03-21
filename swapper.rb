@@ -2,10 +2,9 @@ module FileSwapper
   class Swapper
     
     def initialize(*args)
-      arg_arr = args.to_a
-      exit_if_invalid(arg_arr)
+      exit_if_invalid(args)
       @file_list = []
-      read_files(arg_arr)
+      read_files(args)
       write_files
     end
     
