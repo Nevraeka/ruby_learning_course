@@ -1,16 +1,30 @@
 class Rectangle
 
-  def initialize (width, height)
-    @width = width.to_f
+  def initialize (base, height)
+    @base = base.to_f
     @height = height.to_f
   end
 
   def area
-    @width * @height
+    @base * @height
   end
 
   def perimeter
-    (@width*2) + (@height*2)
+    (@base*2) + (@height*2)
   end
 
 end
+
+def rectangle_analysis(rect)
+  analysis = "Area is = #{rect.area}\n"
+  analysis << "Perimeter is = #{rect.perimeter}"
+end
+
+puts "Lets make a rectangle...."
+puts "First enter the width for your rectangle"
+width = gets.strip
+puts "Finally enter the height of your rectangle"
+height = gets.strip
+
+rect = Rectangle.new(width, height)
+puts rectangle_analysis(rect)
