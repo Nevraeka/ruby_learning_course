@@ -31,7 +31,7 @@ class Dog
 
   def teach_trick!(trick, &trick_block)
     remove_method trick if respond_to?(trick)
-    define_singleton_method(trick, &trick_block)
+    teach_trick(trick, &trick_block)
   end
 
   def method_missing(meth, *args, &block)
