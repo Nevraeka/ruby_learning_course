@@ -15,24 +15,24 @@ doctest: 'random_year' should return a year after or equal to 1930
 doctest: 'random_year' should return an Fixnum type 
 >> random_year.class
 => Fixnum
-doctest: 'goodbye?' should return false if text is empty.
->> goodbye?("")
+doctest: 'grandma_can_hear' should return false if text is empty.
+>> grandma_can_hear("")
 => true
-doctest: 'goodbye?' should return false if text is uppercase.
->> goodbye?("HELLO")
+doctest: 'grandma_can_hear' should return false if text is uppercase.
+>> grandma_can_hear("HELLO")
 => false
-doctest: 'goodbye?' should return true if text is lowercased
->> goodbye?("hello")
+doctest: 'grandma_can_hear' should return true if text is lowercased
+>> grandma_can_hear("hello")
 => true
 =end
 
-puts "Please chat with Grandma Ruby"
-
 def deaf_grandma_chatter
+  puts "Please chat with Grandma Ruby" 
   loop do
-    input =  gets.strip
-    puts grandmas_response
-  end until goodbye?
+    break if question == "BYE!"
+    question =  gets.chomp
+    puts grandmas_answer(question)
+  end 
 end
 
 def random_recollections
@@ -43,14 +43,12 @@ def random_year
  random_recollections[rand(random_recollections.size)]
 end
 
-def goodbye?
-  (gets.chomp != gets.chomp.upcase! || gets.chomp == "")
+def grandma_can_hear(input)
+  (input != input.upcase! || input == "")
 end
 
-def grandmas_response
-  p goodbye?
-
-  goodbye? ? "HUH?! SPEAK UP, SONNY!" : "NO! NOT SINCE #{random_year}!" 
+def grandmas_answer(input)
+  grandma_can_hear(input) ? "NO! NOT SINCE #{random_year}!" : "HUH?! SPEAK UP, SONNY!" 
 end
 
 deaf_grandma_chatter
