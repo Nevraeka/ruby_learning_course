@@ -1,12 +1,16 @@
 class GameBoard 
   
   def initialize
-    @hits = 3
+    @hits = 0
+    @fire_count = 0
   end
 
   def check_yourself(user_guess)
-    return "kill" if @hits == 0
-    @hits -= 1 if (@locations.include? user_guess.to_i )
+    @fire_count += 1
+    return "kill" if (@hits == 3 || @fire_count == @locations.length)
+    if (@locations.include? user_guess.to_i )
+      
+    end
    end
    
   end
