@@ -1,34 +1,16 @@
 class GameBoard 
   
   def initialize
-<<<<<<< HEAD
-<<<<<<< HEAD
     @hits = 0
-=======
-    @hits = 3
->>>>>>> parent of 9d92ba0... updating gameboard. still have pending duplicate entry bug to fix
-=======
-    @hits = 3
->>>>>>> parent of 9d92ba0... updating gameboard. still have pending duplicate entry bug to fix
   end
   
   def check_yourself(user_guess)
-<<<<<<< HEAD
-<<<<<<< HEAD
     if @hits == 3
       return "Selected already. Chose again" if locations_have? user_guess
       "kill" 
     else
       puts target(user_guess)
-    end 
-=======
-=======
->>>>>>> parent of 9d92ba0... updating gameboard. still have pending duplicate entry bug to fix
-    return "kill" if @hits == 0
-    @hits -= 1 if (@locations.include? user_guess.to_i )
-   end
-   
->>>>>>> parent of 9d92ba0... updating gameboard. still have pending duplicate entry bug to fix
+    end
   end
   
   def set_locations_cells(locations)
